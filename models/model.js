@@ -1,10 +1,11 @@
 const db = require('../config/connection');
 
-function getAllCompetitors(){
+function getAllCompetitors() {
   return db.manyOrNone(`
-    SELECT * FROM competitors;
-    `);
+    SELECT * FROM competitors
+  `)
 }
+
 module.exports = {
-  getAllCompetitors,
+  getAllCompetitors: getAllCompetitors
 }

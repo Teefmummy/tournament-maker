@@ -1,8 +1,8 @@
 \c tournament
 
-DROP TABLE IF EXISTS tournaments;
-DROP TABLE IF EXISTS competitors;
-DROP TABLE IF EXISTS matches;
+DROP TABLE IF EXISTS tournaments CASCADE;
+DROP TABLE IF EXISTS competitors CASCADE;
+DROP TABLE IF EXISTS matches CASCADE;
 
 CREATE TABLE tournaments (
   id SERIAL PRIMARY KEY,

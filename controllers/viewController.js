@@ -5,5 +5,5 @@ function sendCompetitors(req, res) {
 }
 
 module.exports = {
-  sendCompetitors
+  sendCompetitors: sendCompetitors
 }

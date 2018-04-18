@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Teefmummy/tournament-maker#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "ejs": "^2.5.8",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.3",

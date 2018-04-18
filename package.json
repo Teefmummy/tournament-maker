@@ -1,0 +1,26 @@
+{
+  "name": "tournament-maker",
+  "version": "1.0.0",
+  "description": "## Project Schedule",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teefmummy/tournament-maker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teefmummy/tournament-maker/issues"
+  },
+  "homepage": "https://github.com/Teefmummy/tournament-maker#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.3",
+    "pg-promise": "^8.3.2"
+  }
+}

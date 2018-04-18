@@ -17,16 +17,33 @@ This schedule will be used to keep track of your progress throughout the week an
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+A tournament bracket maker that could be used by tournament organizers for tracking winners and statistics on games played. 
 
 ## Wireframes
 
 Include images of your wireframes.
 (https://)
 
+## User Stories
+
+##### Landing Page
+User can login (or skip) to create a tournament. 
+#### Tournament Creation Screen
+User can choose number of players (4/8/16), which sport or game, or best of 1, 3, or 5 games.
+User enters competitors names based on previous selections. 
+#### Tournament Page
+User sees a bracket organized with players names put into matches
+User clicks on matchup to edit the matchup and select a winner.
+User sees the winner move on to the next matchup. They can not click on the match until it is populated with 2 players. 
+User can hit a reset button to reset the bracket to original state. 
+#### (Post MVP) Match Edit Page
+User can enter points scored by each team And select Winner
+
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matix.
+Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.
+
+
 
 
 

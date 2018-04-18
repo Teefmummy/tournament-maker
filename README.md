@@ -22,7 +22,12 @@ A tournament bracket maker that could be used by tournament organizers for track
 ## Wireframes
 
 Include images of your wireframes.
-(https://)
+(https://res.cloudinary.com/teefmummy/image/upload/v1524074515/Project%202%20wireframes/20180418_104705.jpg)
+(https://res.cloudinary.com/teefmummy/image/upload/v1524074523/Project%202%20wireframes/20180418_105126.jpg)
+(https://res.cloudinary.com/teefmummy/image/upload/v1524074514/Project%202%20wireframes/20180418_105416.jpg)
+(https://res.cloudinary.com/teefmummy/image/upload/v1524074521/Project%202%20wireframes/20180418_110007.jpg)
+(https://res.cloudinary.com/teefmummy/image/upload/v1524074704/20180418_140442.jpg)
+(https://res.cloudinary.com/teefmummy/image/upload/v1524074704/20180418_140445.jpg)
 
 ## User Stories
 
@@ -36,12 +41,20 @@ User sees a bracket organized with players names put into matches
 User clicks on matchup to edit the matchup and select a winner.
 User sees the winner move on to the next matchup. They can not click on the match until it is populated with 2 players. 
 User can hit a reset button to reset the bracket to original state. 
-#### (Post MVP) Match Edit Page
-User can enter points scored by each team And select Winner
+User can edit results of matches and update/correct with accurate data.
 
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.
+### MVP
+Working bracket logic and RESTful database structure.
+Works for 4 players, best out of 1 game per round.
+All running on one page with overlays(modals) used for data entry and collection.
+
+### Post MVP
+works for 8 or 16 players, best out of 3/5 games
+Visual spice added for tournament progression
+
 
 
 

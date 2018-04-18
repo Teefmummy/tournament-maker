@@ -46,6 +46,7 @@ User can edit results of matches and update/correct with accurate data.
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.
+
 ### MVP
 Working bracket logic and RESTful database structure.
 Works for 4 players, best out of 1 game per round.
@@ -55,33 +56,6 @@ All running on one page with overlays(modals) used for data entry and collection
 works for 8 or 16 players, best out of 3/5 games
 Visual spice added for tournament progression
 
-
-
-
-
-
-## Game Components
-
-### Landing Page
-What will a user see when they start your app?
-
-Landing Page:
-
-
-### App Initialization
-What will a user see when the app is started?
-
-
-### Using The app
-What will be the flow of the game, what will the user be expeted to do and what will the user 
-
-
-### App Reset
-
-
-## MVP
-
-## POST MVP
 
 ## Functional Components
 
@@ -95,12 +69,9 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Total |  | 33hrs| 26hrs |
 
 ## Helper Functions
-Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
 | Function | Description |
 | --- | :---: |
-| getRandomInt | This will provide a random number with a max and min value |
-| compareScores | This can be used within the .sort method for arrays for sorting numbers in order of highest to lowest |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project.

@@ -17,6 +17,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
+const tourneyRouter = require('/routes/router');
+
+app.use('/', tourneyRouter);
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 

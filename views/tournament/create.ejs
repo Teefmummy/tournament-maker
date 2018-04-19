@@ -1,0 +1,24 @@
+<% include ../partials/boilerplate %>
+
+  <form class="create-tournament" action="/create" method="post">
+    <label>
+      <h4>Please enter the name of your tournament</h4>
+      <input type="text" name="name" id="name" cols="30" rows="10" placeholder="Super cool Tournament"></input>
+    </label>
+    <label>
+      <h4>Please Select the Number of Competitors</h4>
+      <select name="num_comp">
+        <option value="4">4</option>
+      </select>
+    </label>
+    <label for="">
+      <h4>Enter Competitors Names</h4>
+      <input type="text" name="comp_name" id="comp_1">
+      <input type="text" name="comp_name" id="comp_2">
+      <input type="text" name="comp_name" id="comp_3">
+      <input type="text" name="comp_name" id="comp_4">
+    </label>
+    <button type="submit">Start the Tournament!</button>
+  </form>
+
+<% include ../partials/end %>

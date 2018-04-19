@@ -12,7 +12,7 @@ CREATE TABLE tournaments (
 
 CREATE TABLE competitors (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(25)
+  comp_name VARCHAR(25)
 );
 
 CREATE TABLE matches (

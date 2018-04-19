@@ -5,6 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const tourneyRouter = require('./routes/router');
+const createRouter = require('./routes/createRouter');
 
 const PORT = 3000;
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', tourneyRouter);
+app.use('/create', createRouter);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

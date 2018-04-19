@@ -22,7 +22,30 @@ function getOne(req, res, next) {
   })
 }
 
+function addTournament(req, res, next) {
+  tournamentDB.createTournament(req.body)
+  .then((data)=> {
+    res.locals.tournament = data;
+    next()
+  })
+  .catch((err) => {
+    next(err)
+  })
+}
+function getOneTournament(req, res, next) {
+  tournamentDB.getOneTournament(req.params.id)
+  .then((data) => {
+    res.locals.tournament = data;
+    next();
+  })
+  .catch((err) => {
+    next(err);
+  })
+}
+
 module.exports = {
   getAll: getAll,
-  getOne: getOne
+  getOne: getOne,
+  addTournament: addTournament,
+  getOneTournament: getOneTournament
 }

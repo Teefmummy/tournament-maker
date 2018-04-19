@@ -11,7 +11,18 @@ function getAll(req, res, next) {
     next(err);
   })
 }
+function getOne(req, res, next) {
+  tournamentDB.getOneCompetitor(req.params.id)
+  .then((data) => {
+    res.locals.competitor = data;
+    next()
+  })
+  .catch((err) => {
+    next(err)
+  })
+}
 
 module.exports = {
-  getAll: getAll
+  getAll: getAll,
+  getOne: getOne
 }

@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
+<% include partials/boilerplate %>
   <% competitors.forEach((data) => { %>
     <p><%= data.name %></p>
   <% }) %>
-</body>
-</html>
+<% include partials/end %>

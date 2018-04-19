@@ -3,7 +3,11 @@ function sendCompetitors(req, res) {
     competitors: res.locals.competitors
   })
 }
+function sendCompetitor(req, res) {
+  res.json({data: res.locals.competitor});
+}
 
 module.exports = {
-  sendCompetitors: sendCompetitors
+  sendCompetitors: sendCompetitors,
+  sendCompetitor: sendCompetitor
 }

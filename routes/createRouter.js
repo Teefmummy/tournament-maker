@@ -19,6 +19,7 @@ createRouter.route('/:id')
 createRouter.route('/bracket')
   .get(viewController.sendNewTournament)
   .post(queryController.addTournament, viewController.sendNewTournament, sendError);
-
+createRouter.route('/yo/yo')
+  .get(queryController.bracketBuilder, viewController.showBracket, sendError)
 
 module.exports = createRouter;

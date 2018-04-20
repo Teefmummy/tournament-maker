@@ -25,12 +25,23 @@ function redirectToTournament(req, res) {
   console.log('redirecting to /create/' + res.locals.tournament[0].id);
   res.redirect(`/create/${res.locals.tournament[0].id}`);
 }
-
+function showTournament(req, res) {
+  res.render('tournament/4bracket', {
+    tournament: res.locals.tournament
+  })
+}
+function showBracket(req, res) {
+  res.json({
+    bracket: res.locals.bracket
+  })
+}
 module.exports = {
   sendCompetitors: sendCompetitors,
   sendCompetitor: sendCompetitor,
   sendCreateForm: sendCreateForm,
   sendNewTournament: sendNewTournament,
   redirectToTournament: redirectToTournament,
-  sendOneTournament: sendOneTournament
+  sendOneTournament: sendOneTournament,
+  showTournament: showTournament,
+  showBracket: showBracket
 }

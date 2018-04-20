@@ -68,3 +68,22 @@ function createTournament(tournament){
       })
   })
 }
+
+// function createTournament(tournament) {
+//   return db.tx(t => {
+//     return t.batch([
+//       t.one(`
+//           INSERT INTO tournaments (name, num_comp)
+//           VALUES ($/name/, $/num_comp/)
+//           RETURNING *
+//           `, tournament)].concat(
+//         tournament.comp_name.map((data) => { return t.one(`
+//           INSERT INTO competitors (comp_name)
+//           VALUES ($1)
+//        RETURNING *`, data)})
+//     ))
+//    .then(data => {
+//     return data;
+//    })
+//   })
+// }

@@ -39,14 +39,16 @@ function createTournament(tournament){
   })
   .then((data) => {
     let y =[data];
-    function matches(player, player2, dat) {
+    function matches(player, player2, dat, num) {
       return db.one(`
-        INSERT INTO matches (comp_a_id, comp_b_id, tournament_id)
+        INSERT INTO matches (comp_a_id, comp_b_id, tournament_id, round_id)
         VALUES ($1, $2, $3, $4) RETURNING *
-        `, [ player, player2, dat])
+        `, [ player, player2, dat, num])
     }
     for(let i = 1; i < data.length; i += 2) {
-      y.push(matches(data[i].id, data[i+1].id ,data[0].id))
+      let z = 0;
+      y.push(matches(data[i].id, data[i+1].id ,data[0].id, z))
+      z += 1;
     }
     console.log(y);
     return Promise.all(y);

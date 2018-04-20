@@ -55,11 +55,15 @@ function getOneTournament(req, res, next) {
     next(err);
   })
 }
+function getAllTournamentInfo(req, res, next){
+
+}
 
 module.exports = {
   getAll: getAll,
   getOne: getOne,
   addTournament: addTournament,
   getOneTournament: getOneTournament,
-  addCompetitors: addCompetitors
+  addCompetitors: addCompetitors,
+  getAllTournamentInfo: getAllTournamentInfo
 }

@@ -1,4 +1,7 @@
 <% include ../partials/boilerplate %>
-  <%= tournament.name %>
-  <%= tournament.num_comp %>
+  <p><%= tournament[0].name %></p>
+  <p><%= tournament[0].num_comp %></p>
+  <% for(let i = 1; i < tournament.length; i++) { %>
+    <p><%= tournament[i].comp_name %></p>
+  <% } %>
 <% include ../partials/end %>

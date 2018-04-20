@@ -12,7 +12,7 @@ function sendCreateForm(req, res) {
 }
 function sendNewTournament(req, res) {
   console.log('from view controller');
-  res.render('tournament/4bracket',{
+  res.render('tournament/4bracket', {
     tournament: res.locals.tournament
   });
 }
@@ -22,7 +22,8 @@ function sendOneTournament(req, res) {
   });
 }
 function redirectToTournament(req, res) {
-  res.redirect(`/create/${res.locals.tournament[0].id}`)
+  console.log('redirecting to /create/' + res.locals.tournament[0].id);
+  res.redirect(`/create/${res.locals.tournament[0].id}`);
 }
 
 module.exports = {

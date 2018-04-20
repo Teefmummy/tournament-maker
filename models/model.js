@@ -42,7 +42,7 @@ function createTournament(tournament){
     function matches(player, player2, dat) {
       return db.one(`
         INSERT INTO matches (comp_a_id, comp_b_id, tournament_id)
-        VALUES ($1, $2, $3) RETURNING *
+        VALUES ($1, $2, $3, $4) RETURNING *
         `, [ player, player2, dat])
     }
     for(let i = 1; i < data.length; i += 2) {

@@ -1,15 +1,25 @@
 <% include ../partials/boilerplate %>
   <div class='tournament-container'>
-    <div  class="first-round-1">
-      <div>
-        <p class="competitor"><span><%= matches%></span></p>
-        <p class="competitor"><span><%= bracket %></span></p>
+    <div class="first-round-container">
+      <div  class="first-round east">
+        <div>
+          <p class="competitor"><span><%= matches[0].comp_a_id%></span></p>
+          <p class="competitor"><span><%= matches[0].comp_b_id %></span></p>
+        </div>
+      </div>
+      <div class="first-round west">
+        <div>
+          <p class="competitor"><span><%= matches[1].comp_a_id %></span></p>
+          <p class="competitor"><span><%= matches[1].comp_b_id %></span></p>
+        </div>
       </div>
     </div>
-    <div class="first-round-2">
-      <div>
-        <p class="competitor"><span></span></p>
-        <p class="competitor"><span></span></p>
+    <div class="final-round-container">
+      <div class="final-round ">
+        <div>
+          <p class="competitor"><span>filler</span></p>
+          <p class="competitor"><span>filler</span></p>
+        </div>
       </div>
     </div>
   </div>

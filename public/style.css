@@ -4,9 +4,33 @@ body {
   margin: 0;
   font-family: 'Quattrocento Sans', sans-serif;
 }
-textarea {
-  resize: none;
-}
 p {
   background-color: lightgreen;
 }
+
+
+.tournament-container {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+.first-round-container {
+background-color: green;
+width: 50%;
+}
+.first-round {
+  background-color: #CECECE;
+  width: 50%;
+  margin: auto;
+}
+.final-round-container {
+  background-color: red;
+  width: 50%;
+}
+.final-round {
+  background-color: #CECECE;
+  width: 50%;
+  margin:auto;
+}
+

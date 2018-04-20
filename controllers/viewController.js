@@ -22,8 +22,8 @@ function sendOneTournament(req, res) {
   });
 }
 function redirectToTournament(req, res) {
-  console.log('redirecting to /create/' + res.locals.tournament[0].id);
-  res.redirect(`/create/${res.locals.tournament[0].id}`);
+  console.log('redirecting to /create/' + res.locals.tournament[0][0].id);
+  res.redirect(`/create/${res.locals.tournament[0][0].id}`);
 }
 function showTournament(req, res) {
   res.render('tournament/4bracket', {
@@ -31,10 +31,17 @@ function showTournament(req, res) {
   })
 }
 function showBracket(req, res) {
-  res.json({
-    bracket: res.locals.bracket
+  res.render('tournament/4bracket',{
+    bracket: res.locals.bracket,
+    matches: res.locals.matches
   })
+  console.log(res.locals.bracket, res.locals.matches);
 }
+// function showMatches(req, res) {
+
+//   matches = res.locals.matches;
+//   res.json(matches);
+// }
 module.exports = {
   sendCompetitors: sendCompetitors,
   sendCompetitor: sendCompetitor,
@@ -43,5 +50,6 @@ module.exports = {
   redirectToTournament: redirectToTournament,
   sendOneTournament: sendOneTournament,
   showTournament: showTournament,
-  showBracket: showBracket
+  showBracket: showBracket,
+  // showMatches: showMatches
 }

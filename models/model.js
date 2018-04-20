@@ -63,21 +63,52 @@ function createTournament(tournament){
 //   console.log(querypromise);
 // }
 
-function buildBracket(){
-  return db.manyOrNone(`
-    SELECT * FROM tournaments
-    JOIN matches
-    ON matches.tournament_id = tournaments.id
-    `)
-}
+// function buildBracket(id){
+//   return db.manyOrNone(`
+//     SELECT * FROM tournaments
+//     JOIN competitors
+//     ON competitors.tournament_id = tournaments.id
+//     WHERE tournaments.id = $1
+//     `, id)
+// }
+// function getMatches(id) {
+//   return db.manyOrNone(`
+//     SELECT * FROM matches
+//     JOIN competitors
+//     ON (matches.comp_a_id = competitors.id) OR(matches.comp_b_id = competitors.id)
+//     WHERE matches.tournament_id = $1
+//     `, id)
+// }
 
+function buildBracket(id) {
+  return db.tx(t => {
+    return t.batch([
+                  t.manyOrNone(`
+                      SELECT * FROM tournaments
+                      JOIN competitors
+                      ON competitors.tournament_id = tournaments.id
+                      WHERE tournaments.id = $1
+                      `, id),
+                  t.manyOrNone(`
+                        SELECT * FROM matches
+                        JOIN competitors
+                        ON matches.comp_a_id = competitors.id
+                        WHERE matches.tournament_id = $1
+                        `, id)
+                  ])
+    .then(data => {
+      return data;
+    })
+}
+)}
 
 module.exports = {
   getAllCompetitors: getAllCompetitors,
   getOneCompetitor: getOneCompetitor,
   getOneTournament: getOneTournament,
   createTournament: createTournament,
-  buildBracket: buildBracket
+  buildBracket: buildBracket,
+  // getMatches: getMatches
   // getTournamentInfo: getTournamentInfo
 
 }

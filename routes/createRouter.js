@@ -11,15 +11,16 @@ function sendError(err, req, res, next) {
 
 createRouter.route('/')
   .get(viewController.sendCreateForm)
-  .post(queryController.addTournament, viewController.sendNewTournament, sendError);
+  .post(queryController.addTournament, viewController.redirectToTournament, sendError);
 
 createRouter.route('/:id')
-  .get(queryController.getOneTournament, viewController.sendOneTournament, sendError);
-
-createRouter.route('/bracket')
-  .get(viewController.sendNewTournament)
-  .post(queryController.addTournament, viewController.sendNewTournament, sendError);
-createRouter.route('/yo/yo')
   .get(queryController.bracketBuilder, viewController.showBracket, sendError)
+  // .get(queryController.bringmatches, viewController.showMatches, sendError);
+
+// createRouter.route('/bracket')
+//   .get(viewController.sendNewTournament)
+//   .post(queryController.addTournament, viewController.sendNewTournament, sendError);
+// createRouter.route('/yo/yo')
+//   .get(queryController.bracketBuilder, viewController.showBracket, sendError)
 
 module.exports = createRouter;

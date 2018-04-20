@@ -66,15 +66,25 @@ function getAllTournamentInfo(req, res, next){
   })
 }
 function bracketBuilder(req, res, next) {
-  tournamentDB.buildBracket()
+  tournamentDB.buildBracket(req.params.id)
   .then(data => {
-    res.locals.bracket = data;
+    res.locals.bracket = data[0];
+    res.locals.matches = data[1];
     next();
   })
   .catch((err) => {
     next(err);
   })
-
+}
+function bringmatches(req, res, next) {
+  tournamentDB.getMatches(req.params.id)
+  .then(data => {
+    res.locals.matches = data;
+    next();
+  })
+  .catch((err) => {
+    next(err);
+  })
 }
 
 module.exports = {
@@ -84,5 +94,6 @@ module.exports = {
   getOneTournament: getOneTournament,
   addCompetitors: addCompetitors,
   getAllTournamentInfo: getAllTournamentInfo,
-  bracketBuilder: bracketBuilder
+  bracketBuilder: bracketBuilder,
+  bringmatches: bringmatches
 }

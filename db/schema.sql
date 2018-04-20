@@ -12,7 +12,8 @@ CREATE TABLE tournaments (
 
 CREATE TABLE competitors (
   id SERIAL PRIMARY KEY,
-  comp_name VARCHAR(25)
+  comp_name VARCHAR(25),
+  tournament_id INT NOT NULL REFERENCES tournaments (id)
 );
 
 CREATE TABLE matches (

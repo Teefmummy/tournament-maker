@@ -23,13 +23,26 @@ function getOne(req, res, next) {
 }
 
 function addTournament(req, res, next) {
+  console.log('hey')
   tournamentDB.createTournament(req.body)
   .then((data)=> {
+    console.log('querycontroller', data);
     res.locals.tournament = data;
     next()
   })
   .catch((err) => {
     next(err)
+  })
+}
+function addCompetitors(req, res, next){
+  tournamentDB.createCompetitors(req.body)
+  .then((data) => {
+    console.log(data);
+    res.locals.competitors = data;
+    next()
+  })
+  .catch((err) => {
+    next(err);
   })
 }
 function getOneTournament(req, res, next) {
@@ -47,5 +60,6 @@ module.exports = {
   getAll: getAll,
   getOne: getOne,
   addTournament: addTournament,
-  getOneTournament: getOneTournament
+  getOneTournament: getOneTournament,
+  addCompetitors: addCompetitors
 }

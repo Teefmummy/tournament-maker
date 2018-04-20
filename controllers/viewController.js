@@ -22,8 +22,7 @@ function sendOneTournament(req, res) {
   });
 }
 function redirectToTournament(req, res) {
-  console.log('redirecting to /create/' + res.locals.tournament.id);
-  res.redirect(`/create/${res.locals.tournament.id}`)
+  res.redirect(`/create/${res.locals.tournament[0].id}`)
 }
 
 module.exports = {

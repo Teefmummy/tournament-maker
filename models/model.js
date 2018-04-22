@@ -121,12 +121,25 @@ function buildBracket(id) {
 }
 )}
 
+function getOneMatch(id) {
+  return db.one(`
+    WITH selection1 AS
+      (select competitors.comp_name as name1, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
+        FROM matches JOIN competitors ON matches.comp_a_id = competitors.id),
+      selection2 AS
+      (select competitors.comp_name as name2, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
+        FROM matches JOIN competitors ON matches.comp_b_id = competitors.id)
+      SELECT * FROM selection1 JOIN selection2 ON selection2.matchey = selection1.matchey WHERE selection1.matchey = $1
+    `, id);
+}
+
 module.exports = {
   getAllCompetitors: getAllCompetitors,
   getOneCompetitor: getOneCompetitor,
   getOneTournament: getOneTournament,
   createTournament: createTournament,
   buildBracket: buildBracket,
+  getOneMatch: getOneMatch
   // getMatches: getMatches
   // getTournamentInfo: getTournamentInfo
 

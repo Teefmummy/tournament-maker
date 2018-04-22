@@ -87,6 +87,16 @@ function bringmatches(req, res, next) {
     next(err);
   })
 }
+function bringMatch(req, res, next) {
+  tournamentDB.getOneMatch(req.params.id)
+  .then(data => {
+    res.locals.match = data;
+    next();
+  })
+  .catch((err) => {
+    next(err);
+  })
+}
 
 module.exports = {
   getAll: getAll,
@@ -96,5 +106,6 @@ module.exports = {
   addCompetitors: addCompetitors,
   getAllTournamentInfo: getAllTournamentInfo,
   bracketBuilder: bracketBuilder,
-  bringmatches: bringmatches
+  bringmatches: bringmatches,
+  bringMatch: bringMatch
 }

@@ -1,0 +1,8 @@
+<% include ../partials/boilerplate %>
+<form action="/create/<%= match.tourney %>?_method=PUT" method="post">
+  <h2>Select a winner</h2>
+    <input type="radio" name="winner" value="<%= match.comp_a_id %>" checked><%= match.name1 %><br>
+    <input type="radio" name="winner" value="<%= match.comp_b_id %>"> <%= match.name2 %><br>
+    <button type="submit"></button>
+</form>
+<% include ../partials/end %>

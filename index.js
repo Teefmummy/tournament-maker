@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const tourneyRouter = require('./routes/router');
 const createRouter = require('./routes/createRouter');
+const matchRouter = require('./routes/matchRouter');
 
 const PORT = 3000;
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', tourneyRouter);
 app.use('/create', createRouter);
+app.use('/match', matchRouter);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

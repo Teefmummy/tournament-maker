@@ -37,6 +37,11 @@ function showBracket(req, res) {
     matches: res.locals.matches
   })
 }
+function sendMatch(req, res) {
+  res.render('partials/editmatch', {
+    match: res.locals.match
+  })
+}
 // function showMatches(req, res) {
 
 //   matches = res.locals.matches;
@@ -51,5 +56,6 @@ module.exports = {
   sendOneTournament: sendOneTournament,
   showTournament: showTournament,
   showBracket: showBracket,
+  sendMatch: sendMatch
   // showMatches: showMatches
 }

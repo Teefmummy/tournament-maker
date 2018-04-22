@@ -31,11 +31,11 @@ function showTournament(req, res) {
   })
 }
 function showBracket(req, res) {
+  console.log('grampa',res.locals);
   res.render('tournament/4bracket',{
     bracket: res.locals.bracket,
     matches: res.locals.matches
   })
-  console.log(res.locals.bracket, res.locals.matches);
 }
 // function showMatches(req, res) {
 

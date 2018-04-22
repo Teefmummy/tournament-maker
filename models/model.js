@@ -32,6 +32,7 @@ function createTournament(tournament){
                       VALUES ($1, $2) RETURNING *`,
       [player, dat.id])
     };
+
     for(let i = 0; i < tournament.comp_name.length; i++) {
       x.push(players(tournament.comp_name[i], data))
     }
@@ -45,12 +46,24 @@ function createTournament(tournament){
         VALUES ($1, $2, $3, $4) RETURNING *
         `, [ player, player2, dat, num])
     }
-    for(let i = 1; i < data.length; i += 2) {
+    function dummyMatches(dat, num) {
+      return db.one(`
+        INSERT INTO matches (tournament_id, round_id)
+        VALUES ($1, $2) RETURNING *
+        `, [dat, num])
+    }
+
+    function loopingMatches() {
       let z = 0;
+       for(let i = 1; i < data.length; i += 2) {
       y.push(matches(data[i].id, data[i+1].id ,data[0].id, z))
       z += 1;
     }
-    console.log(y);
+        y.push(dummyMatches(data[0].id, 2));
+    }
+   loopingMatches();
+
+    console.log('y', y);
     return Promise.all(y);
   })
 }
@@ -94,8 +107,8 @@ function buildBracket(id) {
                   t.manyOrNone(`
                         SELECT * FROM matches
                         JOIN competitors
-                        ON matches.comp_a_id = competitors.id
-                        WHERE matches.tournament_id = $1
+                        ON competitors.tournament_id = matches.tournament_id
+                        WHERE matches.tournament_id = $1 AND (comp_a_id = competitors.id OR comp_b_id = competitors.id)
                         `, id)
                   ])
     .then(data => {

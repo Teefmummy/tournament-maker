@@ -68,6 +68,7 @@ function getAllTournamentInfo(req, res, next){
 function bracketBuilder(req, res, next) {
   tournamentDB.buildBracket(req.params.id)
   .then(data => {
+    console.log('data', data);
     res.locals.bracket = data[0];
     res.locals.matches = data[1];
     next();

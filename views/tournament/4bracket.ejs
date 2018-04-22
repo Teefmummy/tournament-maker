@@ -2,20 +2,19 @@
   <div class='tournament-container'>
     <div class="first-round-container">
       <div  class="first-round east">
+        <%- include('../partials/match', {p1: matches[0],p2:matches[1]}); %>
       </div>
       <div class="first-round west">
         <div>
-          <p class="competitor"><span><%= matches[1].comp_a_id %></span></p>
-          <p class="competitor"><span><%= matches[1].comp_b_id %></span></p>
+          <%- include('../partials/match', {p1: matches[2],p2:matches[3]}); %>
         </div>
       </div>
     </div>
     <div class="final-round-container">
       <div class="final-round ">
-        <div>
-          <p class="competitor"><span>filler</span></p>
-          <p class="competitor"><span>filler</span></p>
-        </div>
+        <% if (!matches[4] && matches[5]) { %>
+        <%- include('../partials/match', {p1: matches[4],p2:matches[5]}); %>
+        <% } %>
       </div>
     </div>
   </div>

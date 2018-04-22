@@ -48,8 +48,8 @@ function createTournament(tournament){
     }
     function dummyMatches(dat, num) {
       return db.one(`
-        INSERT INTO matches (tournament_id, round_id)
-        VALUES ($1, $2) RETURNING *
+        INSERT INTO matches (comp_a_id, comp_b_id, tournament_id, round_id)
+        VALUES (1, 1, $1, $2) RETURNING *
         `, [dat, num])
     }
 
@@ -105,10 +105,14 @@ function buildBracket(id) {
                       WHERE tournaments.id = $1
                       `, id),
                   t.manyOrNone(`
-                        SELECT * FROM matches
-                        JOIN competitors
-                        ON competitors.tournament_id = matches.tournament_id
-                        WHERE matches.tournament_id = $1 AND (comp_a_id = competitors.id OR comp_b_id = competitors.id)
+                        WITH selection1 AS
+                        (select competitors.comp_name as name1, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
+                          FROM matches JOIN competitors ON matches.comp_a_id = competitors.id),
+                        selection2 AS
+                        (select competitors.comp_name as name2, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
+                          FROM matches JOIN competitors ON matches.comp_b_id = competitors.id)
+                        SELECT * FROM selection1 JOIN selection2 ON selection2.matchey = selection1.matchey WHERE selection1.tourney = $1
+                        ORDER BY selection1.round ASC
                         `, id)
                   ])
     .then(data => {

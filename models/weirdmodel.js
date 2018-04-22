@@ -87,3 +87,11 @@ function createTournament(tournament){
 //    })
 //   })
 // }
+
+
+
+SELECT * FROM matches
+JOIN (SELECT * FROM competitors) tbl2 ON matches.comp_a_id = tbl2.id
+JOIN (SELECT * FROM competitors) tbl3 ON matches.comp_b_id = tbl3.id
+WHERE matches.tournament_id = 41;
+

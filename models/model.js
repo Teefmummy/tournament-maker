@@ -20,9 +20,10 @@ function getOneTournament(id){
 }
 
 function createTournament(tournament){
+  console.log(tournament);
   return db.one(`
-    INSERT INTO tournaments (name, num_comp)
-    VALUES ($/name/, $/num_comp/) RETURNING *`,
+    INSERT INTO tournaments (name, num_comp, tournament_champion)
+    VALUES ($/name/, $/num_comp/, 1) RETURNING *`,
   tournament)
   .then((data) => {
     let x = [data];
@@ -83,7 +84,13 @@ function buildBracket(id) {
           FROM matches JOIN competitors ON matches.comp_b_id = competitors.id)
         SELECT * FROM selection1 JOIN selection2 ON selection2.matchey = selection1.matchey WHERE selection1.tourney = $1
         ORDER BY selection1.round ASC`,
-        id)
+        id),
+      t.one(`
+        SELECT competitors.comp_name FROM competitors
+        JOIN tournaments
+        ON competitors.id = tournaments.tournament_champion
+        WHERE tournaments.id = $1
+        `, id)
     ])
     .then(data => {
       return data;
@@ -118,6 +125,12 @@ function updateFinalRound(data) {
       WHERE tournament_id = $2 and matches.round_id = 2
       RETURNING *`,
       [data.winner, data.tournament_id]);
+  } else if (data.round === '2') {
+    return db.one(`
+      UPDATE tournaments
+      SET tournament_champion = $1
+      WHERE id = $2 RETURNING *`,
+      [data.winner, data.tournament_id])
   }
 }
 

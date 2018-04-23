@@ -67,6 +67,7 @@ function bracketBuilder(req, res, next) {
   .then(data => {
     res.locals.bracket = data[0];
     res.locals.matches = data[1];
+    res.locals.winner = data[2];
     next();
   })
   .catch((err) => {

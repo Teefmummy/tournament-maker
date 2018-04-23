@@ -28,9 +28,11 @@ function showTournament(req, res) {
   })
 }
 function showBracket(req, res) {
+  console.log('winner',res.locals.winner);
   res.render('tournament/4bracket',{
     bracket: res.locals.bracket,
-    matches: res.locals.matches
+    matches: res.locals.matches,
+    winner: res.locals.winner
   })
 }
 function sendMatch(req, res) {
@@ -39,7 +41,11 @@ function sendMatch(req, res) {
   })
 }
 function redirectFromUpdate(req, res) {
-  res.redirect(`/create/${res.locals.match.tournament_id}`);
+  if(!res.locals.match.tournament_id) {
+    res.redirect(`/create/${res.locals.match.id}`)
+  } else {
+  res.redirect(`/create/${res.locals.match.tournament_id}`)
+  }
 }
 
 module.exports = {

@@ -26,3 +26,5 @@ CREATE TABLE matches (
   round_id INT
 );
 
+ALTER TABLE tournaments ADD COLUMN tournament_champion INT REFERENCES competitors (id);
+

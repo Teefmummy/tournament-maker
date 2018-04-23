@@ -27,6 +27,6 @@ app.use('/', tourneyRouter);
 app.use('/create', createRouter);
 app.use('/match', matchRouter);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`listening on port ${PORT}`);
 })

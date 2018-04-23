@@ -1,7 +1,7 @@
 //require core dependencies
 const path = require('path');
 // load all env variables from .env file into process.env object.
-require(‘dotenv’).config()
+require('dotenv').config()
 
 const express = require('express');
 const logger = require('morgan');
@@ -29,6 +29,6 @@ app.use('/', tourneyRouter);
 app.use('/create', createRouter);
 app.use('/match', matchRouter);
 
-app.listen(PORT,"0.0.0.0", () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`listening on port ${PORT}`);
 })

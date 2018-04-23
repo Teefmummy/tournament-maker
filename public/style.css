@@ -3,11 +3,36 @@ body {
   font-size: 16px;
   margin: 0;
   font-family: 'Quattrocento Sans', sans-serif;
+  background-color: #F2F2F2;
 }
+/*F2CE90
+69898C
+865952
+F25E5E
+F2F2F2*/
 p {
   background-color: lightgreen;
 }
+.front-page {
+  margin: 10vh auto;
+    text-align: center;
+    width: 70vw;
+    padding: 20vh;
+    border-radius: 2vw;
+    background-color: #F2CE90;
+}
+.front-page h1 {
+  font-size:10vh;
+  margin: none;
+}
+.front-page .start {
 
+  background-color: #F25E5E;
+  border-radius: 2vh;
+  color: black;
+  font-size: 8vh;
+  text-decoration: none;
+}
 
 .tournament-container {
   display: flex;

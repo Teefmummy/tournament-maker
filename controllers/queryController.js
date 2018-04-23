@@ -90,6 +90,7 @@ function bringmatches(req, res, next) {
 function bringMatch(req, res, next) {
   tournamentDB.getOneMatch(req.params.id)
   .then(data => {
+    console.log('data',data);
     res.locals.match = data;
     next();
   })
@@ -98,9 +99,13 @@ function bringMatch(req, res, next) {
   })
 }
 function updateFinal(req, res, next) {
-  tournamentDB.updateFinalRound(req.body, req.params.id)
+  console.log('params', req.params.id);
+  console.log('body', req.body);
+  req.body.tournament_id = req.params.id;
+  tournamentDB.updateFinalRound(req.body)
   .then(data => {
-    res.locals.match
+    console.log('data', data);
+    res.locals.match = data;
   })
 }
 
@@ -113,5 +118,6 @@ module.exports = {
   getAllTournamentInfo: getAllTournamentInfo,
   bracketBuilder: bracketBuilder,
   bringmatches: bringmatches,
-  bringMatch: bringMatch
+  bringMatch: bringMatch,
+  updateFinal: updateFinal
 }

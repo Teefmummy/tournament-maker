@@ -42,6 +42,10 @@ function sendMatch(req, res) {
     match: res.locals.match
   })
 }
+function redirectFromUpdate(req, res) {
+  console.log('hey', res.locals.match);
+  res.redirect(`/create/${res.locals.match.tourney}`);
+}
 
 module.exports = {
   sendCompetitors: sendCompetitors,
@@ -52,5 +56,6 @@ module.exports = {
   sendOneTournament: sendOneTournament,
   showTournament: showTournament,
   showBracket: showBracket,
-  sendMatch: sendMatch
+  sendMatch: sendMatch,
+  redirectFromUpdate: redirectFromUpdate
 }

@@ -98,30 +98,36 @@ function buildBracket(id) {
 function getOneMatch(id) {
   return db.one(`
     WITH selection1 AS
-      (select competitors.comp_name as name1, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
+      (SELECT matches.comp_a_id as S1a_id, competitors.comp_name as name1, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
         FROM matches JOIN competitors ON matches.comp_a_id = competitors.id),
       selection2 AS
-      (select competitors.comp_name as name2, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
+      (SELECT matches.comp_b_id as S2b_id, competitors.comp_name as name2, matches.tournament_id as tourney, matches.round_id as round, matches.id as matchey
         FROM matches JOIN competitors ON matches.comp_b_id = competitors.id)
       SELECT * FROM selection1 JOIN selection2 ON selection2.matchey = selection1.matchey WHERE selection1.matchey = $1
     `, id);
 }
-function updateFinalRound(winner, id) {
-  if( matches.round_id === 0) {
-    return db.one(`
-      UPDATE matches
-      SET comp_a_id = $1
-      WHERE tournament_id = $2 AND matches.round_id = 2
-      RETURNING *
-    `, [winner, id])
-  } else if (matches.round_id === 1) {
-    return db.one(`
-      UPDATE matches
-      SET comp_b_id = $1
-      WHERE tournament_id = $2 AND matches.round_id = 2
-      RETURNING *
-    `, [winner,id])
-  }
+function updateFinalRound(data) {
+  // if( matches.round_id === 0) {
+  //   return db.one(`
+  //     UPDATE matches
+  //     SET comp_a_id = $1
+  //     WHERE tournament_id = $2 AND matches.round_id = 2
+  //     RETURNING *
+  //   `, [winner, id])
+  // } else if (matches.round_id === 1) {
+  //   return db.one(`
+  //     UPDATE matches
+  //     SET comp_b_id = $1
+  //     WHERE tournament_id = $2 AND matches.round_id = 2
+  //     RETURNING *
+  //   `, [winner,id])
+  // }
+  return db.one(`
+    UPDATE matches
+    SET comp_a_id = $/winner/
+    WHERE tournament_id = $/tournament_id/ and matches.round_id = 2
+    RETURNING *
+    `, data);
 
 }
 

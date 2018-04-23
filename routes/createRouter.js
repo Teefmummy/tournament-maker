@@ -15,6 +15,6 @@ createRouter.route('/')
 
 createRouter.route('/:id')
   .get(queryController.bracketBuilder, viewController.showBracket, sendError)
-  .put(queryController.updateFinal,)
+  .put(queryController.updateFinal, viewController.redirectFromUpdate);
 
 module.exports = createRouter;

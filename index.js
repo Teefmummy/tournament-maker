@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const tourneyRouter = require('./routes/router');
 const createRouter = require('./routes/createRouter');
-const matchRouter = require('./routes/matchRouter');
+const matchRouter = require('./routes/matchrouter');
 
 const PORT = process.env.PORT || 3000;
 

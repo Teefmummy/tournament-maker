@@ -9,7 +9,7 @@ const tourneyRouter = require('./routes/router');
 const createRouter = require('./routes/createRouter');
 const matchRouter = require('./routes/matchRouter');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -27,6 +27,6 @@ app.use('/', tourneyRouter);
 app.use('/create', createRouter);
 app.use('/match', matchRouter);
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT,"0.0.0.0", () => {
   console.log(`listening on port ${PORT}`);
 })

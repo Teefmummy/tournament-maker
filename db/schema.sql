@@ -1,4 +1,3 @@
-\c tournament
 
 DROP TABLE IF EXISTS tournaments CASCADE;
 DROP TABLE IF EXISTS competitors CASCADE;

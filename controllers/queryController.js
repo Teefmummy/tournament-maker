@@ -97,6 +97,12 @@ function bringMatch(req, res, next) {
     next(err);
   })
 }
+function updateFinal(req, res, next) {
+  tournamentDB.updateFinalRound(req.body, req.params.id)
+  .then(data => {
+    res.locals.match
+  })
+}
 
 module.exports = {
   getAll: getAll,

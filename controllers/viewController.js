@@ -42,11 +42,7 @@ function sendMatch(req, res) {
     match: res.locals.match
   })
 }
-// function showMatches(req, res) {
 
-//   matches = res.locals.matches;
-//   res.json(matches);
-// }
 module.exports = {
   sendCompetitors: sendCompetitors,
   sendCompetitor: sendCompetitor,
@@ -57,5 +53,4 @@ module.exports = {
   showTournament: showTournament,
   showBracket: showBracket,
   sendMatch: sendMatch
-  // showMatches: showMatches
 }

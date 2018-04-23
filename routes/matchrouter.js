@@ -11,7 +11,8 @@ function sendError(err, req, res, next) {
 tournamentRouter.route('/')
   .get(queryController.getAll, viewController.sendCompetitors, sendError);
 
-tournamentRouter.route('/:id')
-  .get(queryController.bringMatch, viewController.sendMatch, sendError);
+tournamentRouter.route('/:id/update')
+  .get(queryController.bringMatch, viewController.sendMatch, sendError)
+
 
 module.exports = tournamentRouter;

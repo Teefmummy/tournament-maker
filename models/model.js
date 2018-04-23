@@ -68,33 +68,6 @@ function createTournament(tournament){
   })
 }
 
-// function getTournamentInfo(data){
-//   let querypromise = db.manyOrNone(`
-//     SELECT * FROM tournaments
-//     JOIN competitors
-//     ON competitors.tournament_id = tournaments.id
-//     WHERE id = $1
-//     `, data)
-//   console.log(querypromise);
-// }
-
-// function buildBracket(id){
-//   return db.manyOrNone(`
-//     SELECT * FROM tournaments
-//     JOIN competitors
-//     ON competitors.tournament_id = tournaments.id
-//     WHERE tournaments.id = $1
-//     `, id)
-// }
-// function getMatches(id) {
-//   return db.manyOrNone(`
-//     SELECT * FROM matches
-//     JOIN competitors
-//     ON (matches.comp_a_id = competitors.id) OR(matches.comp_b_id = competitors.id)
-//     WHERE matches.tournament_id = $1
-//     `, id)
-// }
-
 function buildBracket(id) {
   return db.tx(t => {
     return t.batch([
@@ -121,6 +94,7 @@ function buildBracket(id) {
 }
 )}
 
+
 function getOneMatch(id) {
   return db.one(`
     WITH selection1 AS
@@ -132,6 +106,24 @@ function getOneMatch(id) {
       SELECT * FROM selection1 JOIN selection2 ON selection2.matchey = selection1.matchey WHERE selection1.matchey = $1
     `, id);
 }
+function updateFinalRound(winner, id) {
+  if( matches.round_id === 0) {
+    return db.one(`
+      UPDATE matches
+      SET comp_a_id = $1
+      WHERE tournament_id = $2 AND matches.round_id = 2
+      RETURNING *
+    `, [winner, id])
+  } else if (matches.round_id === 1) {
+    return db.one(`
+      UPDATE matches
+      SET comp_b_id = $1
+      WHERE tournament_id = $2 AND matches.round_id = 2
+      RETURNING *
+    `, [winner,id])
+  }
+
+}
 
 module.exports = {
   getAllCompetitors: getAllCompetitors,
@@ -139,8 +131,7 @@ module.exports = {
   getOneTournament: getOneTournament,
   createTournament: createTournament,
   buildBracket: buildBracket,
-  getOneMatch: getOneMatch
-  // getMatches: getMatches
-  // getTournamentInfo: getTournamentInfo
+  getOneMatch: getOneMatch,
+  updateFinalRound: updateFinalRound
 
 }

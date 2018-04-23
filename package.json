@@ -9,6 +9,10 @@
     "dev": "nodemon index.js",
     "heroku-postbuild": "npm install --production"
   },
+  "engines": {
+    "node": "v7.1.0",
+    "npm": "3.10.9"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Teefmummy/tournament-maker.git"

@@ -102,6 +102,17 @@ function updateFinal(req, res, next) {
     next();
   })
 }
+function destroyTournament(req, res, next) {
+  console.log('what>');
+  tournamentDB.destroy(req.params.id)
+  .then(() => {
+    console.log('hey there');
+    next()
+  })
+  .catch(err => {
+    next(err)
+  })
+}
 
 module.exports = {
   getAll: getAll,
@@ -113,5 +124,6 @@ module.exports = {
   bracketBuilder: bracketBuilder,
   bringmatches: bringmatches,
   bringMatch: bringMatch,
-  updateFinal: updateFinal
+  updateFinal: updateFinal,
+  destroyTournament: destroyTournament
 }

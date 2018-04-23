@@ -28,7 +28,7 @@ function showTournament(req, res) {
   })
 }
 function showBracket(req, res) {
-  console.log('winner',res.locals.winner);
+  console.log('winner',res.locals.bracket);
   res.render('tournament/4bracket',{
     bracket: res.locals.bracket,
     matches: res.locals.matches,
@@ -47,7 +47,9 @@ function redirectFromUpdate(req, res) {
   res.redirect(`/create/${res.locals.match.tournament_id}`)
   }
 }
-
+function redirectToCreatePage(req, res) {
+  res.redirect('/create/');
+}
 module.exports = {
   sendCompetitors: sendCompetitors,
   sendCompetitor: sendCompetitor,
@@ -58,5 +60,6 @@ module.exports = {
   showTournament: showTournament,
   showBracket: showBracket,
   sendMatch: sendMatch,
-  redirectFromUpdate: redirectFromUpdate
+  redirectFromUpdate: redirectFromUpdate,
+  redirectToCreatePage: redirectToCreatePage
 }

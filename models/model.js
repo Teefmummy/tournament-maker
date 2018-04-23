@@ -134,6 +134,15 @@ function updateFinalRound(data) {
   }
 }
 
+function destroy(id) {
+  console.log('about to delete');
+  return db.one(`
+    DELETE FROM tournaments
+    WHERE tournaments.id = $1 RETURNING *
+    `, id)
+}
+
+
 module.exports = {
   getAllCompetitors: getAllCompetitors,
   getOneCompetitor: getOneCompetitor,
@@ -141,6 +150,7 @@ module.exports = {
   createTournament: createTournament,
   buildBracket: buildBracket,
   getOneMatch: getOneMatch,
-  updateFinalRound: updateFinalRound
+  updateFinalRound: updateFinalRound,
+  destroy: destroy
 
 }

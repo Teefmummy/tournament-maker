@@ -1,5 +1,7 @@
 //require core dependencies
 const path = require('path');
+// load all env variables from .env file into process.env object.
+require(‘dotenv’).config()
 
 const express = require('express');
 const logger = require('morgan');

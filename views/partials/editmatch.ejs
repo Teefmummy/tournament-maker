@@ -3,6 +3,7 @@
   <h2>Select a winner</h2>
     <input type="radio" name="winner" value="<%= match.s1a_id %>"><%= match.name1 %><br>
     <input type="radio" name="winner" value="<%= match.s2b_id %>"><%= match.name2 %><br>
+    <input type="hidden"  name="round" value="<%= match.round %>" style="display:none;">
     <button type="submit">Submit</button>
 </form>
 <% include ../partials/end %>

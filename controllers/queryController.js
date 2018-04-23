@@ -23,10 +23,8 @@ function getOne(req, res, next) {
 }
 
 function addTournament(req, res, next) {
-  console.log('hey')
   tournamentDB.createTournament(req.body)
   .then((data)=> {
-    console.log('querycontroller', data);
     res.locals.tournament = data;
     next()
   })
@@ -37,7 +35,6 @@ function addTournament(req, res, next) {
 function addCompetitors(req, res, next){
   tournamentDB.createCompetitors(req.body)
   .then((data) => {
-    console.log(data);
     res.locals.competitors = data;
     next()
   })
@@ -68,7 +65,6 @@ function getAllTournamentInfo(req, res, next){
 function bracketBuilder(req, res, next) {
   tournamentDB.buildBracket(req.params.id)
   .then(data => {
-    console.log('data', data);
     res.locals.bracket = data[0];
     res.locals.matches = data[1];
     next();
@@ -90,7 +86,6 @@ function bringmatches(req, res, next) {
 function bringMatch(req, res, next) {
   tournamentDB.getOneMatch(req.params.id)
   .then(data => {
-    console.log('data',data);
     res.locals.match = data;
     next();
   })
@@ -99,13 +94,11 @@ function bringMatch(req, res, next) {
   })
 }
 function updateFinal(req, res, next) {
-  console.log('params', req.params.id);
-  console.log('body', req.body);
   req.body.tournament_id = req.params.id;
   tournamentDB.updateFinalRound(req.body)
   .then(data => {
-    console.log('data', data);
     res.locals.match = data;
+    next();
   })
 }
 

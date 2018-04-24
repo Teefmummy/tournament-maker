@@ -41,6 +41,8 @@ Animations added for tournament progression
 
 ## Functional Components
 
+A form for creating a tournament of a certain number of players. A bracket which can be editted as the tournament progresses. The user can click on the matches to choose the winners of each match and that winner's data will subsequently move into their next match.  
+
 
 ## Helper Functions
 
@@ -48,11 +50,45 @@ Animations added for tournament progression
 | --- | :---: |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project.
+This app is built using Node for the server runtime, Express for handling routing, EJS for dynamic HTML templating, in addition to other support middleware. I also implemented Semantic UI for easy CSS styling.
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+
+````JAVASCRIPT 
+function buildBracket(id) {
+  return db.tx(t => {
+    return t.batch([
+      t.manyOrNone(`
+        SELECT * FROM tournaments
+        JOIN competitors
+        ON competitors.tournament_id = tournaments.id
+        WHERE tournaments.id = $1`,
+        id),
+      t.manyOrNone(`
+        WITH selection1 AS
+        (SELECT competitors.comp_name AS name1, matches.tournament_id AS tourney, matches.round_id AS round, matches.id AS matchey
+          FROM matches JOIN competitors ON matches.comp_a_id = competitors.id),
+        selection2 AS
+        (SELECT competitors.comp_name AS name2, matches.tournament_id AS tourney, matches.round_id AS round, matches.id AS matchey
+          FROM matches JOIN competitors ON matches.comp_b_id = competitors.id)
+        SELECT * FROM selection1 JOIN selection2 ON selection2.matchey = selection1.matchey WHERE selection1.tourney = $1
+        ORDER BY selection1.round ASC`,
+        id),
+      t.one(`
+        SELECT competitors.comp_name FROM competitors
+        JOIN tournaments
+        ON competitors.id = tournaments.tournament_champion
+        WHERE tournaments.id = $1
+        `, id)
+    ])
+    .then(data => {
+      return data;
+    })
+  })
+}
+````
 
 
 ## Change Log

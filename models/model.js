@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-
+//some simple model functions
 function getAllCompetitors() {
   return db.manyOrNone(`
     SELECT * FROM competitors

@@ -11,15 +11,15 @@ body {
 F25E5E
 F2F2F2*/
 p {
-  background-color: lightgreen;
+  background-color: #F25E5E;
 }
 .front-page {
   margin: 10vh auto;
-    text-align: center;
-    width: 70vw;
-    padding: 20vh;
-    border-radius: 2vw;
-    background-color: #F2CE90;
+  text-align: center;
+  width: 70vw;
+  padding: 20vh;
+  border-radius: 2vw;
+  background-color: #F2CE90;
 }
 .front-page h1 {
   font-size:10vh;
@@ -52,6 +52,32 @@ p {
 .edit-tournament-page button {
   margin-top: 2vh;
 }
+.first-round {
+  border: solid black 1px;
+  display: flex;
+}
+.first-round .match{
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.first-round .match .competitor {
+  padding: 1vh;
+  margin: 0;
+  border: solid black 1px;
+  display: inline-block;
+  height: 50%;
+  width: 100%;
+}
+.first-round a {
+  width: 25%;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
 .edit-page {
   margin: 10vh auto;
     text-align: center;
@@ -63,26 +89,56 @@ p {
 
 .tournament-container {
   display: flex;
+  flex-direction: column;
+  margin: 10vh auto;
+  text-align: center;
+  height: 70vh;
+  width: 70vw;
+  border-radius: 2vw;
+  background-color: #F2CE90;
+}
+.brackets {
   flex-direction: row;
-
+  justify-content: center;
+  display: flex;
   width: 100%;
+  height: 75%;
+}
+.data {
+  width: 100%;
+  height: 25%;
 }
 .first-round-container {
-background-color: green;
-width: 50%;
+  width: 50%;
 }
 .first-round {
   background-color: #CECECE;
   width: 50%;
   margin: auto;
+  margin-top: 15vh;
 }
 .final-round-container {
-  background-color: red;
+  margin-top: auto;
   width: 50%;
+  height: 75%;
 }
 .final-round {
   background-color: #CECECE;
   width: 50%;
   margin:auto;
 }
+.edit-match-page {
+  margin: 10vh auto;
+  text-align: center;
+  width: 70vw;
+  padding: 20vh;
+  border-radius: 2vw;
+  background-color: #F2CE90;
+}
+.edit-match-page h2 {
+  font-size: 3vh;
+}
+
+
+
 

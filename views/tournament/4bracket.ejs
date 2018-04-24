@@ -1,25 +1,28 @@
 <% include ../partials/boilerplate %>
   <div class='tournament-container'>
+    <div class="brackets">
     <div class="first-round-container">
       <div  class="first-round east">
         <%- include('../partials/match', {match: matches[0]}); %>
       </div>
       <div class="first-round west">
-        <div>
-          <%- include('../partials/match', {match: matches[1]}); %>
-        </div>
+        <%- include('../partials/match', {match: matches[1]}); %>
       </div>
     </div>
     <div class="final-round-container">
-      <div class="final-round ">
+      <div class="first-round final">
         <%- include('../partials/match', {match: matches[2]}); %>
       </div>
     </div>
+    </div>
+    <div class="data">
+      <div class='winner'>
+        <h4>WINNER:<br><%= winner.comp_name %></h4>
+      </div>
+      <form action="/create/<%= bracket[0].tournament_id %>?_method=DELETE" method="POST">
+        <button type="submit" name="button">Restart Tournament</button>
+      </form>
+    </div>
   </div>
-  <div class='winner'>
-  <%= winner.comp_name %>
-  </div>
-  <form action="/create/<%= bracket[0].tournament_id %>?_method=DELETE" method="POST">
-    <button type="submit" name="button">Restart Tournament</button>
-  </form>
+
 <% include ../partials/end %>

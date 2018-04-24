@@ -11,7 +11,7 @@ function getOneCompetitor(id) {
     WHERE id = $1
     `, id)
 }
-
+//some more simple model functions
 function getOneTournament(id){
   return db.one(`
     SELECT * FROM tournaments

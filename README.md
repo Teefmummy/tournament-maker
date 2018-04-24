@@ -1,23 +1,8 @@
 # Project Overview
 
-## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.
-
-|  Day | Deliverable | Status |
-|---|---|---|
-|Day 1: Tue| Wireframes and Priority Matrix|
-|Day 2: Wed| Project Approval /  Pseudocode / actual code|
-|Day 3: Thur| Basic Clickable Model |
-|Day 4: Fri| Working Prototype |
-|Day 5: Sat| Final Working Project |
-|Day 6: Sun| Bugs / Stylying / PostMVP |
-|Day 7: Mon| Project Presentations |
-
-
 ## Project Description
 
-A tournament bracket maker that could be used by tournament organizers for tracking winners and statistics on games played. 
+A tournament bracket maker that can be used by tournament organizers for tracking winners and statistics on games played. 
 
 ## Wireframes
 
@@ -43,30 +28,19 @@ User sees the winner move on to the next matchup. They can not click on the matc
 User can hit a reset button to reset the bracket to original state. 
 User can edit results of matches and update/correct with accurate data.
 
-## Priority Matrix
-
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.
 
 ### MVP
 Working bracket logic and RESTful database structure.
 Works for 4 players, best out of 1 game per round.
-All running on one page with overlays(modals) used for data entry and collection.
+CRUD
 
 ### Post MVP
 works for 8 or 16 players, best out of 3/5 games
-Visual spice added for tournament progression
+Animations added for tournament progression
 
 
 ## Functional Components
 
-Based on the initial logic defined in the previous game phases section try and breakdown the logic further into functional components, and by that we mean functions.  Does your logic indicate that code could be encapsulated for the purpose of reusablility.  Once a function has been defined it can then be incorporated into a class as a method.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted.
-
-| Component | Priority | Estimated Time | Time Invested |
-| --- | :---: |  :---: | :---: |
-| Game Logic | H | 10hrs| 12hrs |
-| Total |  | 33hrs| 26hrs |
 
 ## Helper Functions
 

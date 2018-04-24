@@ -43,12 +43,6 @@ Animations added for tournament progression
 
 A form for creating a tournament of a certain number of players. A bracket which can be editted as the tournament progresses. The user can click on the matches to choose the winners of each match and that winner's data will subsequently move into their next match.  
 
-
-## Helper Functions
-
-| Function | Description |
-| --- | :---: |
-
 ## Additional Libraries
 This app is built using Node for the server runtime, Express for handling routing, EJS for dynamic HTML templating, in addition to other support middleware. I also implemented Semantic UI for easy CSS styling.
 

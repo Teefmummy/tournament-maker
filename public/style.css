@@ -26,12 +26,39 @@ p {
   margin: none;
 }
 .front-page .start {
-
   background-color: #F25E5E;
   border-radius: 2vh;
   color: black;
   font-size: 8vh;
   text-decoration: none;
+}
+.edit-tournament-page {
+  margin: 10vh auto;
+    text-align: center;
+    width: 70vw;
+    padding: 10vh;
+    border-radius: 2vw;
+    background-color: #F2CE90;
+}
+.edit-tournament-page h4 {
+  font-size: 3vh;
+}
+.edit-tournament-page .name-container {
+  display: flex;
+}
+.edit-tournament-page .name-container input {
+  width: 25%;
+}
+.edit-tournament-page button {
+  margin-top: 2vh;
+}
+.edit-page {
+  margin: 10vh auto;
+    text-align: center;
+    width: 70vw;
+    padding: 20vh;
+    border-radius: 2vw;
+    background-color: #F2CE90;
 }
 
 .tournament-container {

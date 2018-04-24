@@ -1,5 +1,5 @@
 <% include ../partials/boilerplate %>
-
+<div class="edit-tournament-page">
   <form class="create-tournament" action="/create" method="post">
     <label>
       <h4>Please enter the name of your tournament</h4>
@@ -11,14 +11,16 @@
         <option value="4">4</option>
       </select>
     </label>
-    <label for="">
+    <label>
       <h4>Enter Competitors Names</h4>
+      <div class="name-container">
       <input type="text" name="comp_name" required>
       <input type="text" name="comp_name" required>
       <input type="text" name="comp_name" required>
       <input type="text" name="comp_name" required>
+      </div>
     </label>
     <button type="submit">Start the Tournament!</button>
   </form>
-
+</div>
 <% include ../partials/end %>

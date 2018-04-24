@@ -88,5 +88,8 @@ function buildBracket(id) {
 I was not prepared for how difficult this actually ended up being. I spent most of my time building out what I needed from my model and had to change the schema for my database several times. 
 One issue that I faced was tryin to get all of the matches to show up on the bracket page regardless of whether or not they had actually occured yet. The EJS templates would error out if the matches given to them by the controller did not exist yet. This led to creating a TBD competitor that I could use in place of the actual winners of the matches. 
 
+##Project Presentation
+[![presentation]](https://img.youtube.com/vi/-dhKkIV3Egg/0.jpg)](https://www.youtube.com/watch?v=https://-dhKkIV3Egg)
+
 ## Link to deployed App
 https://tournament-maker.herokuapp.com/

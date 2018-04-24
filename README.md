@@ -8,11 +8,11 @@ A tournament bracket maker that can be used by tournament organizers for trackin
 
 Include images of your wireframes.
 ![img 1](https://res.cloudinary.com/teefmummy/image/upload/v1524074515/Project%202%20wireframes/20180418_104705.jpg)
-(https://res.cloudinary.com/teefmummy/image/upload/v1524074523/Project%202%20wireframes/20180418_105126.jpg)
-(https://res.cloudinary.com/teefmummy/image/upload/v1524074514/Project%202%20wireframes/20180418_105416.jpg)
-(https://res.cloudinary.com/teefmummy/image/upload/v1524074521/Project%202%20wireframes/20180418_110007.jpg)
-(https://res.cloudinary.com/teefmummy/image/upload/v1524074704/20180418_140442.jpg)
-(https://res.cloudinary.com/teefmummy/image/upload/v1524074704/20180418_140445.jpg)
+![img 2](https://res.cloudinary.com/teefmummy/image/upload/v1524074523/Project%202%20wireframes/20180418_105126.jpg)
+![img 3](https://res.cloudinary.com/teefmummy/image/upload/v1524074514/Project%202%20wireframes/20180418_105416.jpg)
+![img 4](https://res.cloudinary.com/teefmummy/image/upload/v1524074521/Project%202%20wireframes/20180418_110007.jpg)
+![img 5](https://res.cloudinary.com/teefmummy/image/upload/v1524074704/20180418_140442.jpg)
+![img 6](https://res.cloudinary.com/teefmummy/image/upload/v1524074704/20180418_140445.jpg)
 
 ## User Stories
 

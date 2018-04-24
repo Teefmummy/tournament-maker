@@ -89,7 +89,7 @@ I was not prepared for how difficult this actually ended up being. I spent most 
 One issue that I faced was tryin to get all of the matches to show up on the bracket page regardless of whether or not they had actually occured yet. The EJS templates would error out if the matches given to them by the controller did not exist yet. This led to creating a TBD competitor that I could use in place of the actual winners of the matches. 
 
 ##Project Presentation
-![presentation](https://youtu.be/-dhKkIV3Egg)
+[![presentation](https://res.cloudinary.com/teefmummy/image/upload/v1524577135/Screen_Shot_2018-04-24_at_9.38.24_AM.png)](https://youtu.be/-dhKkIV3Egg)
 
 ## Link to deployed App
 https://tournament-maker.herokuapp.com/

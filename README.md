@@ -7,7 +7,7 @@ A tournament bracket maker that can be used by tournament organizers for trackin
 ## Wireframes
 
 Include images of your wireframes.
-(https://res.cloudinary.com/teefmummy/image/upload/v1524074515/Project%202%20wireframes/20180418_104705.jpg)
+![img 1](https://res.cloudinary.com/teefmummy/image/upload/v1524074515/Project%202%20wireframes/20180418_104705.jpg)
 (https://res.cloudinary.com/teefmummy/image/upload/v1524074523/Project%202%20wireframes/20180418_105126.jpg)
 (https://res.cloudinary.com/teefmummy/image/upload/v1524074514/Project%202%20wireframes/20180418_105416.jpg)
 (https://res.cloudinary.com/teefmummy/image/upload/v1524074521/Project%202%20wireframes/20180418_110007.jpg)
@@ -54,7 +54,7 @@ This app is built using Node for the server runtime, Express for handling routin
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+I am proud of the following buildBracket function because it utlizes many aspects of this project and is the basis for the the app's core functionality. It utilizes the Transaction and Batch functionality of PG Promises in addition to more sophisticated PostgreSQL statements. 
 
 ````JAVASCRIPT 
 function buildBracket(id) {
@@ -90,10 +90,9 @@ function buildBracket(id) {
 }
 ````
 
-
-## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.
-
-
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
+I was not prepared for how difficult this actually ended up being. I spent most of my time building out what I needed from my model and had to change the schema for my database several times. 
+One issue that I faced was tryin to get all of the matches to show up on the bracket page regardless of whether or not they had actually occured yet. The EJS templates would error out if the matches given to them by the controller did not exist yet. This led to creating a TBD competitor that I could use in place of the actual winners of the matches. 
+
+## Link to deployed App
+https://tournament-maker.herokuapp.com/
